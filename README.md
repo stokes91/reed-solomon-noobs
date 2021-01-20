@@ -13,7 +13,20 @@ Fortunately, it appears that just a couple of digits were written down wrong.
 
 ## Under the Hood: examples/four.js
 
-This polynomial was corrupted in one place.
+We'll construct a polynomial in a finite field of 16 integers,
+and that polynomial is specially made to evaluate to zero at
+three differing exponents of A.
+
+```
+g = poly.evaluateAt(GaloisField.Exp(i))
+
+
+{ i: 0, g: '0x0' }
+{ i: 1, g: '0x0' }
+{ i: 2, g: '0x0' }
+```
+
+However, this polynomial was corrupted in one place.
 ```
  0 D 1 5
 ```
