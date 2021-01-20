@@ -75,7 +75,9 @@ We begin with two polynomials, the rLast is the error syndrome.
 Meanwhile, r is a monomial, and the degree is set to the number of error correction symbols.
 
 t: ![\text{0}){16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/016.png),
+
 r: ![\text{1}_{16}a^3](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/1A3.png)
+
 rLast: ![\text{E}_{16}a^2 + \text{5}_{16}a + \text{6}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/E56.png)
 
 We'll find last nonzero remainder of the long division of these two polynomials.
@@ -96,7 +98,9 @@ r.add(rLast.copy().multiplyByScalar(scale).shift(degreeDiff));
 ```
 
 t: ![\text{3}_{16}a](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/3A.png)
+
 r: ![\text{F}_{16}a^2 + \text{A}_{16}a](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/FAA.png)
+
 rLast: ![\text{E}_{16}a^2 + \text{5}_{16}a + \text{6}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/E56.png)
 
 ```
@@ -116,6 +120,7 @@ r.add(rLast.copy().multiplyByScalar(scale).shift(degreeDiff));
 ```
 
 t: ![\text{3}_{16}a + \text{2}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/32A.png)
+
 r: ![\text{C}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/C16.png)
 
 
@@ -129,6 +134,7 @@ The so the inverse, 0x9, is multiplied with both t and r. t becomes the error lo
 r becomes an error correcting polynomial.
 
 errorLocator: ![\text{4}_{16}a + \text{9}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/4A9.png)
+
 errorCorrect: ![\text{3}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/316.png)
 
 The error locator has zeroes, which are found by evaluating until the number of results equals the
