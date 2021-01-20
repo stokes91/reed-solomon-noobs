@@ -74,13 +74,9 @@ to the method used in the real world.
 We begin with two polynomials, the rLast is the error syndrome.
 Meanwhile, r is a monomial, and the degree is set to the number of error correction symbols.
 
-```
-/*
-  t: '0',
-  r: ![\text{1}_{16}a^3](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/1A3.png)
-  rLast: ![\text{E}_{16}a^2 + \text{5}_{16}a + \text{6}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/E56.png)
-*/
-```
+t: ![\text{0}){16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/016.png),
+r: ![\text{1}_{16}a^3](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/1A3.png)
+rLast: ![\text{E}_{16}a^2 + \text{5}_{16}a + \text{6}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/E56.png)
 
 We'll find last nonzero remainder of the long division of these two polynomials.
 
@@ -97,11 +93,13 @@ t.add(GaloisFieldPolynomial.monomial(degreeDiff, scale));
 r.add(rLast.copy().multiplyByScalar(scale).shift(degreeDiff));
 // r.add(rLast.copy().multiplyByScalar(3).shift(1))
 
-/*
-  t: ![\text{3}_{16}a](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/3A.png)
-  r: ![\text{F}_{16}a^2 + \text{A}_{16}a](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/FAA.png)
-  rLast: ![\text{E}_{16}a^2 + \text{5}_{16}a + \text{6}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/E56.png)
-*/
+```
+
+t: ![\text{3}_{16}a](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/3A.png)
+r: ![\text{F}_{16}a^2 + \text{A}_{16}a](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/FAA.png)
+rLast: ![\text{E}_{16}a^2 + \text{5}_{16}a + \text{6}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/E56.png)
+
+```
 
 const degreeDiff = r.degree() - rLast.degree();
 // 0
@@ -115,11 +113,11 @@ t.add(GaloisFieldPolynomial.monomial(degreeDiff, scale));
 r.add(rLast.copy().multiplyByScalar(scale).shift(degreeDiff));
 // r.add(rLast.copy().multiplyByScalar(2).shift(0))
 
-/*
-  t: '![\text{3}_{16}a + \text{2}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/32A.png)'
-  r: '![\text{C}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/C16.png)'
-*/
 ```
+
+t: ![\text{3}_{16}a + \text{2}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/32A.png)
+r: ![\text{C}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/C16.png)
+
 
 If the calculate step runs more than once, ErrorCorrectingAlgorithm.js:34 wouldn't multiply
 the error finding polynomial by the identity, and add zero.
@@ -130,12 +128,8 @@ We'll divide both polynomials by t's constant coefficient. The constant coeffici
 The so the inverse, 0x9, is multiplied with both t and r. t becomes the error locating polynomial, and
 r becomes an error correcting polynomial.
 
-```
-/*
- errorLocator: \text{4}_{16}a + \text{9}_{16}
- errorCorrect: \text{3}_{16}
-*/
-```
+errorLocator: ![\text{4}_{16}a + \text{9}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/4A9.png)
+errorCorrect: ![\text{3}_{16}](https://raw.githubusercontent.com/stokes91/reed-solomon-noobs/main/resources/316.png)
 
 The error locator has zeroes, which are found by evaluating until the number of results equals the
 polynomial's degree, here, one. At a = 0xF, the errorLocator evaluates to zero.
