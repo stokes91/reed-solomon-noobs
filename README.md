@@ -10,7 +10,7 @@ The next day, you see the crumpled napkin reads
  7 6 7 4 3 0 9 9 5 4 4 0 9 E E
 ```
 
-A couple digits were witten down wrong. And that was the end of it.
+A couple digits were written down wrong. And that was the end of it.
 A few days later, you share this sad sob story with the bartender,
 and to your shock, she produces a detailed, magnificently typeset, note from Jenny.
 
