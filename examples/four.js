@@ -15,8 +15,6 @@
 */
 
 const {
-  GaloisField,
-  GaloisFieldPolynomial,
   ReedSolomonEncoder,
   ReedSolomonDecoder
 } = require('../main');

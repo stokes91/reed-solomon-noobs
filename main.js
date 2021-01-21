@@ -14,10 +14,21 @@
    limitations under the License.
 */
 
-const ReedSolomonEncoder = require('./lib/ReedSolomonEncoder');
-const ReedSolomonDecoder = require('./lib/ReedSolomonDecoder');
-const GaloisFieldPolynomial = require('./lib/GaloisFieldPolynomial');
-const GaloisField = require('./lib/GaloisField');
+const {
+  Zero,
+  One,
+  Add,
+  Multiply,
+  Divide,
+  Exp,
+  Log,
+  Invert,
+  Size,
+  Base,
+  Polynomial,
+  ReedSolomonDecoder,
+  ReedSolomonEncoder
+} = require('rs-finite-field')(0x10, 0x13, 0x2);
 
 function toString16(array) {
   return array.map(x => x.toString(16)).join('');
@@ -26,7 +37,7 @@ function toString16(array) {
 module.exports = {
   ReedSolomonEncoder,
   ReedSolomonDecoder,
-  GaloisFieldPolynomial,
-  GaloisField,
+  Polynomial,
+  GaloisField: { Zero, One, Add, Multiply, Divide, Exp, Log, Invert, Size, Base },
   toString16
 };

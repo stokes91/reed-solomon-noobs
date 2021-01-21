@@ -16,7 +16,7 @@
 
 const {
   GaloisField,
-  GaloisFieldPolynomial,
+  Polynomial,
   ReedSolomonEncoder,
   ReedSolomonDecoder
 } = require('../main');
@@ -46,7 +46,7 @@ Jenny gave you her number, and considered that you might receive a
 few additional more digits, just in case you had one pint too many.
 `);
 
-  const poly = GaloisFieldPolynomial.fromArray(eccBytes);
+  const poly = Polynomial.fromArray(eccBytes);
 
   // Select some positions to smudge
 

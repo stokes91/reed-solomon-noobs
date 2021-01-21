@@ -1,0 +1,7 @@
+{
+  "name": "reed-solomon-noobs",
+  "private": true,
+  "dependencies": {
+    "rs-finite-field": "^2.0.0"
+  }
+}
